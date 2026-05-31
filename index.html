@@ -13,10 +13,21 @@
   .cards { display:flex; gap:12px; margin:20px 0; flex-wrap:wrap; }
   .card { background:#fff; border:1px solid #d0d7de; border-radius:10px; padding:14px 18px; min-width:120px; }
   .card .n { font-size:26px; font-weight:600; }
-  table { width:100%; border-collapse:collapse; background:#fff; border:1px solid #d0d7de; border-radius:10px; overflow:hidden; }
-  th, td { text-align:left; padding:10px 14px; border-bottom:1px solid #eaeef2; }
-  th { font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:#6e7781; background:#f6f8fa; }
-  td.num { text-align:center; }
+  details.proj { background:#fff; border:1px solid #d0d7de; border-radius:10px; margin-bottom:8px; overflow:hidden; }
+  details.proj > summary { list-style:none; cursor:pointer; display:flex; align-items:center; gap:12px; padding:12px 16px; }
+  details.proj > summary::-webkit-details-marker { display:none; }
+  details.proj > summary:hover { background:#f6f8fa; }
+  details.proj[open] > summary { border-bottom:1px solid #eaeef2; }
+  .s-name { flex:1; }
+  .s-type { font-size:12px; color:#6e7781; }
+  .detail { padding:14px 16px; }
+  .detail p { margin:0 0 10px; }
+  dl.phil { margin:0 0 12px; display:grid; grid-template-columns:auto 1fr; gap:4px 14px; }
+  dl.phil dt { font-size:12px; color:#6e7781; white-space:nowrap; }
+  dl.phil dd { margin:0; }
+  .kv { display:flex; gap:10px; font-size:13px; padding:2px 0; }
+  .kv > span:first-child { color:#6e7781; min-width:64px; }
+  .links { margin-top:10px; display:flex; gap:14px; }
   .badge { color:#fff; font-size:12px; padding:2px 8px; border-radius:999px; }
   a { color:#0969da; text-decoration:none; }
 </style>
@@ -24,26 +35,65 @@
 <body>
 <div class="wrap">
   <h1>productivu · status</h1>
-  <div class="muted">생성: 2026-05-31T12:53:37.378Z</div>
+  <div class="muted">생성: 2026-05-31T13:18:55.083Z</div>
   <div class="cards">
-    <div class="card"><div class="n">1</div><div class="muted">프로젝트</div></div>
-    <div class="card"><div class="n" style="color:#1a7f37">1</div><div class="muted">live 배포</div></div>
+    <div class="card"><div class="n">3</div><div class="muted">프로젝트</div></div>
+    <div class="card"><div class="n" style="color:#1a7f37">3</div><div class="muted">live 배포</div></div>
     <div class="card"><div class="n" style="color:#cf222e">0</div><div class="muted">실패</div></div>
     <div class="card"><div class="n">5</div><div class="muted">승인 대기 초안</div></div>
   </div>
-  <table>
-    <thead><tr><th>프로젝트</th><th>분류</th><th>배포</th><th>대기초안</th><th>최근홍보</th><th>링크</th></tr></thead>
-    <tbody>
-<tr>
-        <td><strong>Her</strong><br><span class="muted">her</span></td>
-        <td>product</td>
-        <td><span class="badge" style="background:#1a7f37">live</span></td>
-        <td class="num">5</td>
-        <td>—</td>
-        <td><a href="https://corp-productivu.github.io/her-releases/">landing</a></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="muted" style="margin:8px 0">프로젝트를 누르면 상세가 펼쳐집니다.</div>
+  <details class="proj">
+  <summary>
+    <span class="s-name"><strong>Her</strong> <span class="muted">her</span></span>
+    <span class="s-type">product</span>
+    <span class="badge" style="background:#1a7f37">live</span>
+  </summary>
+  <div class="detail">
+    <p>agent her</p>
+    <dl class="phil"><dt>문제</dt><dd>AI sits in a tab you switch away to — bolted onto the OS, never beside your work. There is no AI that is simply present on screen, at the center of how you work.</dd><dt>발상</dt><dd>An emotional AI OS — not a utility you open, but a warm presence that lives on your desktop and gathers your workspace around the conversation.</dd><dt>접근</dt><dd>A softly breathing orb rests on your wallpaper. One keystroke (Cmd+Opt+Z) blooms a full-screen stage — chat on top, your apps docked below and centered into the focus zone via the Accessibility API. Step away and every window returns exactly where it was. Speak instead of type with on-device dictation. Choose your mind — Claude, Codex, Gemini, or fully local Ollama — with your own keys; with Ollama nothing leaves your machine. A notarized, native macOS app.</dd><dt>대상</dt><dd>Everyday macOS users (13+) who want an AI companion that feels present and warm — not another tool to manage.</dd></dl>
+    <div class="kv"><span>배포</span> github-pages · live · <a href="https://corp-productivu.github.io/her-releases/">열기</a></div>
+    
+    
+    <div class="kv"><span>대기초안</span> 5</div>
+    <div class="kv"><span>최근홍보</span> —</div>
+    <div class="links"><a href="https://corp-productivu.github.io/her-releases/">사이트</a><a href="https://github.com/corp-productivu/her">repo</a></div>
+  </div>
+</details>
+<details class="proj">
+  <summary>
+    <span class="s-name"><strong>Hold That Thought Expand</strong> <span class="muted">hold-that-thought-expand</span></span>
+    <span class="s-type">—</span>
+    <span class="badge" style="background:#1a7f37">live</span>
+  </summary>
+  <div class="detail">
+    <p>Hold That Thought - Cross-platform depth-based note app (Tauri + SvelteKit)</p>
+    
+    <div class="kv"><span>배포</span> site · live · HTTP 200 · <a href="https://hold-that-thought-expand.vercel.app">열기</a></div>
+    
+    
+    <div class="kv"><span>대기초안</span> 0</div>
+    <div class="kv"><span>최근홍보</span> —</div>
+    <div class="links"><a href="https://hold-that-thought-expand.vercel.app">사이트</a><a href="https://github.com/corp-productivu/hold-that-thought-expand">repo</a></div>
+  </div>
+</details>
+<details class="proj">
+  <summary>
+    <span class="s-name"><strong>Literacy Pleasure</strong> <span class="muted">literacy-pleasure</span></span>
+    <span class="s-type">—</span>
+    <span class="badge" style="background:#1a7f37">live</span>
+  </summary>
+  <div class="detail">
+    <p>디지털 글쓰기를 다시, 감각으로</p>
+    
+    <div class="kv"><span>배포</span> site · live · HTTP 200 · <a href="https://literacy-pleasure-app.vercel.app">열기</a></div>
+    <div class="kv"><span>릴리스</span> v1.0.0 (2026-04-16)</div>
+    
+    <div class="kv"><span>대기초안</span> 0</div>
+    <div class="kv"><span>최근홍보</span> —</div>
+    <div class="links"><a href="https://literacy-pleasure-app.vercel.app">사이트</a><a href="https://github.com/corp-productivu/literacy-pleasure">repo</a></div>
+  </div>
+</details>
 </div>
 </body>
 </html>
